@@ -1,10 +1,9 @@
 # Keras Neural Network Application to Predict Earnings
 
 
-This project will explore neural network models using Keras
+This project will explore a neural network model using Keras
 
 A. We will predict earnings from an imaginary company given a list of data with the earnings.
-B. We will also use pretrained model to identify images.
 
 
 This project created using Python 3 and will need the following libraries installed:
@@ -18,7 +17,7 @@ Building Deep Learning Applications with Keras 2.0 by Adam Geitgey and can be fo
 https://www.linkedin.com/learning/building-deep-learning-applications-with-keras-2-0/
 
 
-# A
+# Steps
 1. Read in CSV of trained and test CSV data into pandas
 2. Scale the all the data from 0-1
 3. Cutput saved data.
@@ -31,8 +30,5 @@ https://www.linkedin.com/learning/building-deep-learning-applications-with-keras
 10. Load a model and predict first value using trained model and a new csv.
 11. Use tensorboard to visualise machine learning.
 
-# B
-1. Load up the pretrained model, resNet.
-2. Load up an image.
-3. print out prediction.
+
 
