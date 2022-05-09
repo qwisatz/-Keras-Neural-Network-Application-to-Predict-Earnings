@@ -20,7 +20,7 @@ https://www.linkedin.com/learning/building-deep-learning-applications-with-keras
 # Steps
 1. Read in CSV of trained and test CSV data into pandas
 2. Scale the all the data from 0-1
-3. Cutput saved data.
+3. Output saved data.
 4. Create a model of the session.
 5. Add in neural network parameters.
 6. Add layers, final layer is one output.
