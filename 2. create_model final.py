@@ -2,7 +2,6 @@ import pandas as pd
 from keras.models import Sequential
 from keras.layers import *
 
-
 #===================================
 #LOADING PRESCALED DATA FROM OTHER PYTHON FILE
 #===================================
@@ -13,10 +12,11 @@ training_data_df = pd.read_csv("sales_data_training_scaled.csv")
 X = training_data_df.drop('total_earnings', axis=1).values
 Y = training_data_df[['total_earnings']].values
 
-# Define the model
+
 #===================================
 #create model object
 #===================================
+# Define the model
 model = Sequential()
 
 #===================================
@@ -40,5 +40,46 @@ model.add(Dense(1, activation='linear'))
 # ALSO USE OPTIMERS
 #===================================
 # OPTIMISER IS HOW TO TRAIN YOUR NEURAL NETWORK
-# MSE FOR SHORT, DEAFULT GOOD CHOICE
+# MSE FOR SHORT, DEFAULT CHOICE IF NOT INPUTTED
 model.compile(loss="mean_squared_error", optimizer="adam")
+
+
+
+
+##==================================
+#2 NTRAIN MODEL PARAMETERS
+#===================================
+# Train the model
+model.fit(
+    X,
+    Y,
+    # LOOPS, CHECK EPOCHS TO KNOW WHEN IT BECOMES ACCURATE
+    epochs=50,
+    # BEST TRAINING IS WHEN DATA IS SHUFFLED
+    shuffle=True,
+    # REDUCE LOG MESSAGES
+    verbose=2
+)
+
+
+
+
+##==================================
+# LOAD TEST DATA
+#===================================
+# Load the separate test data set
+test_data_df = pd.read_csv("sales_data_test_scaled.csv")
+
+X_test = test_data_df.drop('total_earnings', axis=1).values
+Y_test = test_data_df[['total_earnings']].values
+
+##==================================
+# TEST TEST DATA
+#===================================
+test_error_rate = model.evaluate(X_test, Y_test, verbose=0)
+print("The mean squared error (MSE) for the test data set is: {}".format(test_error_rate))
+
+
+# Save the model to disk
+model.save("trained_model.h5")
+print("Model saved to disk.")
